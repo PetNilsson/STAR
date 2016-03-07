@@ -3,7 +3,7 @@ Routes and views for the flask application.
 """
 
 from datetime import datetime
-from flask import render_template
+from flask import render_template, request
 from FlaskWebProject import app
 
 @app.route('/')
@@ -34,4 +34,20 @@ def about():
         title='About',
         year=datetime.now().year,
         message='Your application description page.'
+    )
+
+@app.route('/registertime', methods=['GET', 'POST'])
+def registertime():
+    if request.method == "GET" :
+        return render_template(
+            'registertime.html',
+            title='Register time',
+            year=datetime.now().year
+        )
+    time = request.form['worktime']
+    customer = request.form['customer']
+    return render_template(
+        'timeregistered.html',
+        worktime=time,
+        customer=customer
     )

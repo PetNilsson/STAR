@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form action="{{ url_for('registertime') }}" method="POST" class="form-horizontal">
+<fieldset>
+<legend>Fyll i din arbetsredovisning</legend>
+
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="workday">Datum</label>
+        <div class="col-md-4">
+            <input id="workday" type="text" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="customer">Kund</label>
+        <div class="col-md-4">
+            <input id="customer" name="customer" type="text" placeholder="Kund" class="form-control input-md" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="project">Projekt</label>
+        <div class="col-md-4">
+            <input id="project" name="project" type="text" placeholder="Projekt" class="form-control input-md" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="worktime">Tid</label>
+        <div class="col-md-4">
+            <input id="worktime" name="worktime" type="text" placeholder="Timmar" class="form-control input-md" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4">&nbsp;</div>
+        <div class="col-md-8">
+            <button id="submit" name="submit" type="submit" class="btn btn-success">Registrera</button>
+            <button id="cancel" name="cancel" type="reset" class="btn btn-danger">Avbryt</button>
+        </div>
+    </div>
+</fieldset>
+</form>
+{% endblock %}
+{% block scripts %}
+
+{% endblock %}
