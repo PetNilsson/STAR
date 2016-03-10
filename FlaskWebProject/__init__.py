@@ -3,6 +3,13 @@ The flask application package.
 """
 
 from flask import Flask
+from flask.ext.mongoengine import MongoEngine
+
 app = Flask(__name__)
+app.config["MONGODB_SETTINGS"] = {
+    'host':"mongodb://mongo-timereport:K8._7fr92uQ_MDoh1SoQ1VUnu.quW2ELgfCv5eBRrA0-@ds062178.mlab.com:62178/mongo-timereport"
+}
+
+db = MongoEngine(app)
 
 import FlaskWebProject.views
