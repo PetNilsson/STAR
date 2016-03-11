@@ -2,15 +2,14 @@
 
 {% block content %}
 
-<form id="deleteform" action="{{ url_for('edituser', id=user.id, action='delete') }}" method="POST">
-</form>
-<form id="editform" action="{{ url_for('edituser', id=user.id) }}" method="POST" class="form-horizontal">
+
+<form id="editform" class="form-horizontal">
     <fieldset>
         <legend>{{ legend }}</legend>
         <div class="form-group">
             <label class="col-md-4 control-label" for="username">Användarnamn</label>
             <div class="col-md-4">
-                <input id="username" name="username" type="text" class="form-control" value="{{ user.username }}" />
+                <input id="username" name="username" type="text" class="form-control" value="{{ user.username }}" required/>
             </div>
         </div>
         <div class="form-group">
@@ -42,10 +41,10 @@
         <div class="form-group">
             <div class="col-md-4">&nbsp;</div>
             <div class="col-md-8">
-                <button form="editform" id="submit" name="submit" type="submit" class="btn btn-success">Spara</button>
-                <button form="editform" id="cancel" name="cancel" type="reset" class="btn btn-warning">Avbryt</button>
+                <button form="editform" id="submit" name="submit" type="submit" class="btn btn-success" formmethod="POST" formaction="{{ url_for('edituser', id=user.id) }}">Spara</button>
+                <button form="editform" id="cancel" name="cancel" type="submit" class="btn btn-warning" formmethod="GET" formaction="{{ url_for('users') }}">Avbryt</button>
                 {% if request.args['id'] %}
-                        <button form="deleteform" id="delete" name="submit" type="submit" class="btn btn-danger">Radera</button>
+                        <button form="editform" id="delete" name="submit" type="submit" class="btn btn-danger" formmethod="POST" formaction="{{ url_for('edituser', id=user.id, action='delete') }}">Radera</button>
                 {% endif %}
             </div>
         </div>

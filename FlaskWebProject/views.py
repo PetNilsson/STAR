@@ -7,6 +7,7 @@ from datetime import datetime
 from flask import render_template, request, redirect, url_for
 from FlaskWebProject import app
 from FlaskWebProject.models import Report, User
+from flask.ext.login import LoginManager, login_required
 
 @app.route('/')
 @app.route('/home')
@@ -113,5 +114,6 @@ def users():
     )
 
 @app.route('/machines', methods=['GET'])
+@login_required
 def machines():
     return 'Maskiner'

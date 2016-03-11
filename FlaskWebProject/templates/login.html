@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form action="" method="POST" name="form" class="form-horizontal">
+    <fieldset>
+        <legend>{{ legend }}</legend>
+    <div class="col-md-4 col-md-offset-4">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <label class="control-label col-md-4" for="username">Användarnamn</label>
+            <div class="col-md-4">
+            {{ form.username }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-4" for="password">Lösenord</label>
+            <div class="col-md-4">
+            {{ form.password }}
+            </div>
+        </div>
+        <div class="col-md-4">&nbsp;</div>
+        <div class="col-md-4">
+        <button class="btn btn-default" type="submit">Logga in</button>
+        </div>
+    </div>
+    </fieldset>
+</form>
+
+{% endblock %}
