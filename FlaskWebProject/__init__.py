@@ -11,6 +11,7 @@ app.config["MONGODB_SETTINGS"] = {
     'host':"mongodb://mongo-timereport:K8._7fr92uQ_MDoh1SoQ1VUnu.quW2ELgfCv5eBRrA0-@ds062178.mlab.com:62178/mongo-timereport"
 }
 
+app.secret_key = 'SomethingSecret'
 db = MongoEngine(app)
 
 login_manager = LoginManager()
